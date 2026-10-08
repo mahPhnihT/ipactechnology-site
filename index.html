@@ -1,0 +1,351 @@
+<p>
+  test
+</p><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPAC Technology — Building data products for B2B growth</title>
+<meta name="description" content="IPAC Technology is a product company founded in July 2025, building software that helps B2B teams reach the right customers. Our first product is Tracue.">
+<meta property="og:title" content="IPAC Technology">
+<meta property="og:description" content="Building data products for B2B growth. Our first product, Tracue, helps B2B companies reach their ideal customers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ipactechnology.com/">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F6BC16'/%3E%3Cpath d='M9 8h4v16H9zM16 8h5a5 5 0 0 1 0 10h-1v6h-4z' fill='%23000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000;
+    --surface:#111;
+    --surface-2:#191919;
+    --line:rgba(218,225,231,.12);
+    --text:#fff;
+    --muted:#c1c1c1;
+    --dim:#7a7a7a;
+    --accent:#F6BC16;
+    --accent-2:#F7882F;
+    --radius:20px;
+    --max:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"Space Grotesk",Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+  header.scrolled{border-bottom-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;line-height:1.05;letter-spacing:-.02em}
+  .logo-mark{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 200deg,#F6BC16,#F7882F,#E8405A,#2BC0E4,#2ED19A,#F6BC16);display:grid;place-items:center}
+  .logo-mark span{width:22px;height:22px;border-radius:6px;background:#000;display:grid;place-items:center;font-size:12px;font-weight:600;color:#fff}
+  .menu{display:flex;gap:4px;border:1px solid var(--line);border-radius:360px;padding:6px}
+  .menu a{font-size:14px;font-weight:500;text-transform:uppercase;padding:10px 18px;border-radius:360px;transition:background .2s}
+  .menu a:hover{background:rgba(255,255,255,.08)}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#000;font-weight:500;font-size:15px;text-transform:uppercase;padding:13px 26px;border-radius:360px;transition:transform .2s,background .2s;white-space:nowrap}
+  .btn:hover{background:#ffd23f;transform:translateY(-2px)}
+  .btn svg{width:18px;height:18px;transition:transform .2s}
+  .btn:hover svg{transform:translateX(3px)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* HERO */
+  .hero{padding:96px 0 72px;position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);padding:8px 16px;border-radius:360px;margin-bottom:36px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(246,188,22,.18);animation:pulse 2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 8px rgba(246,188,22,0)}}
+  h1{font-weight:400;font-size:clamp(48px,8.6vw,120px);line-height:.98;letter-spacing:-.06em;text-transform:uppercase}
+  .grad{background:linear-gradient(90deg,#FFE9A3 0%,var(--accent) 40%,var(--accent-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-foot{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-top:56px}
+  .hero-foot p{max-width:560px;color:var(--muted);font-size:18px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;margin-top:24px}
+  .ticker-track{display:flex;gap:48px;width:max-content;animation:scroll 30s linear infinite}
+  .ticker span{font-size:22px;text-transform:uppercase;letter-spacing:-.03em;color:var(--dim);display:flex;align-items:center;gap:48px}
+  .ticker span::after{content:"✦";color:var(--accent);font-size:16px}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SECTIONS */
+  section{padding:120px 0}
+  .sec-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:64px}
+  .label{font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);padding-top:14px}
+  h2{font-weight:400;font-size:clamp(36px,5.2vw,72px);line-height:1.02;letter-spacing:-.05em;text-transform:uppercase}
+  h3{font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.15;letter-spacing:-.04em}
+  .lead{color:var(--muted);font-size:18px;max-width:640px;margin-top:24px}
+
+  /* ABOUT */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+  .stat b{display:block;font-weight:400;font-size:44px;letter-spacing:-.05em;line-height:1;margin-bottom:14px}
+  .stat span{color:var(--muted);font-size:15px}
+
+  /* PRODUCT */
+  .product{display:grid;grid-template-columns:1.05fr 1fr;gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:40px;position:relative;overflow:hidden}
+  .tag{display:inline-block;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;padding:6px 12px;border-radius:360px;background:rgba(246,188,22,.12);color:var(--accent);margin-bottom:28px}
+  .tracue-name{font-size:clamp(56px,7vw,96px);letter-spacing:-.06em;line-height:1;font-weight:400;margin-bottom:20px}
+  .card p{color:var(--muted)}
+  .features{list-style:none;margin-top:32px;display:grid;gap:14px}
+  .features li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;color:#ddd}
+  .features li::before{content:"";width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+  .card .btn{margin-top:36px}
+
+  /* Radar visual */
+  .radar-card{display:flex;flex-direction:column;justify-content:space-between;min-height:520px;background:radial-gradient(120% 90% at 50% 100%,#1b1406 0%,var(--surface) 60%)}
+  .radar{position:relative;width:100%;max-width:380px;aspect-ratio:1;margin:8px auto 0}
+  .radar .ring{position:absolute;inset:0;border:1px solid rgba(246,188,22,.22);border-radius:50%}
+  .radar .ring:nth-child(2){inset:16%}
+  .radar .ring:nth-child(3){inset:32%}
+  .radar .sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(246,188,22,.35),transparent 70deg);animation:spin 5s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .blip{position:absolute;width:10px;height:10px;border-radius:50%;background:#2a2a2a;border:1px solid #444}
+  .blip.hot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 18px var(--accent)}
+  .radar .core{position:absolute;inset:46%;border-radius:50%;background:var(--accent)}
+  .signal{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:20px;margin-top:24px;font-size:14px;color:var(--muted)}
+  .signal strong{color:#fff;font-weight:500}
+  .pill{font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:360px;border:1px solid rgba(246,188,22,.4);color:var(--accent)}
+
+  .more{margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--surface-2);border:1px dashed rgba(255,255,255,.18)}
+  .more h3{font-size:clamp(22px,2.4vw,30px)}
+  .more p{margin-top:6px}
+
+  /* PRINCIPLES */
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .principle{padding:40px 32px 40px 0;border-bottom:1px solid var(--line)}
+  .principle+.principle{padding-left:32px;border-left:1px solid var(--line)}
+  .principle .num{font-size:14px;color:var(--accent);margin-bottom:56px;display:block}
+  .principle p{color:var(--muted);margin-top:14px}
+
+  /* TIMELINE */
+  .timeline{display:grid;gap:0;border-top:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:220px 1fr auto;gap:40px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line)}
+  .row .when{font-size:15px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+  .row h3{font-size:clamp(22px,2.6vw,34px)}
+  .row p{color:var(--muted);margin-top:6px;font-size:15px}
+  .status{font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:360px;border:1px solid var(--line);color:var(--muted)}
+  .status.done{background:#fff;color:#000;border-color:#fff}
+  .status.now{background:var(--accent);color:#000;border-color:var(--accent)}
+
+  /* CTA */
+  .cta{border-radius:28px;padding:88px 56px;text-align:center;background:radial-gradient(80% 120% at 50% 0%,rgba(246,188,22,.22),transparent 60%),var(--surface);border:1px solid var(--line)}
+  .cta h2{max-width:900px;margin:0 auto}
+  .cta p{color:var(--muted);max-width:560px;margin:24px auto 40px;font-size:18px}
+  .cta .hero-ctas{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:120px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--dim);font-size:14px}
+  .foot a:hover{color:#fff}
+  .foot nav{display:flex;gap:24px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+  @media (max-width:980px){
+    .menu{display:none}
+    .hero-foot,.product,.sec-head{grid-template-columns:1fr}
+    .sec-head{gap:12px;margin-bottom:44px}
+    .label{padding-top:0}
+    .stats,.principles{grid-template-columns:1fr}
+    .principle,.principle+.principle{padding:32px 0;border-left:0}
+    .principle .num{margin-bottom:24px}
+    .row{grid-template-columns:1fr;gap:10px}
+    .row .status{justify-self:start}
+    .radar-card{min-height:auto}
+    section{padding:88px 0}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .nav{height:72px}
+    .nav .btn{padding:10px 16px;font-size:13px}
+    .hero{padding:64px 0 48px}
+    .card{padding:28px}
+    .cta{padding:56px 24px}
+    .signal{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="IPAC Technology home">
+      <span class="logo-mark"><span>IP</span></span>
+      <span>IPAC<br>Technology</span>
+    </a>
+    <nav class="menu" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#principles">Principles</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <a href="#contact" class="btn">Contact us</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-top:96px">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="dot"></span> Now building — Tracue</div>
+      <h1 class="reveal">Building data<br>products for<br><span class="grad">B2B growth</span></h1>
+      <div class="hero-foot reveal">
+        <p>IPAC Technology is a product company founded in July 2025. We build software that helps B2B teams find, understand and reach the customers that matter most to them.</p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn">Meet Tracue
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>B2B data</span><span>Ideal customer profiles</span><span>Buying signals</span><span>Go-to-market</span><span>Product-led</span><span>Built for global teams</span>
+        <span>B2B data</span><span>Ideal customer profiles</span><span>Buying signals</span><span>Go-to-market</span><span>Product-led</span><span>Built for global teams</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="label">( About us )</div>
+        <div>
+          <h2>A young company with a clear focus</h2>
+          <p class="lead">We started IPAC Technology to make B2B prospecting less about volume and more about precision. Instead of selling lists, we build tools that point teams to the right companies at the right moment.</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><b>2025</b><span>Founded in July 2025</span></div>
+        <div class="stat reveal"><b>B2B</b><span>Focused on tools for business-to-business teams</span></div>
+        <div class="stat reveal"><b>Global</b><span>Products built for international markets</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="label">( Products )</div>
+        <div>
+          <h2>Our first product</h2>
+          <p class="lead">We are in the process of building our product line. The first one is Tracue.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <article class="card reveal">
+          <span class="tag">In development</span>
+          <div class="tracue-name">Tracue</div>
+          <p>Tracue helps B2B companies reach their ideal customer profile (ICP). Define who you want to sell to, find the companies that fit, and know when they are ready to talk.</p>
+          <ul class="features">
+            <li>Filter companies by the criteria that define your ICP</li>
+            <li>Radar that surfaces accounts when a buying signal appears</li>
+            <li>Contacts unlocked only when there is a reason to reach out</li>
+            <li>Sources and timestamps kept for every data point</li>
+          </ul>
+          <a href="#contact" class="btn">Request early access
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+
+        <div class="card radar-card reveal" aria-hidden="true">
+          <div>
+            <span class="tag" style="background:rgba(255,255,255,.06);color:#ddd">Tracue Radar</span>
+            <h3>Signal over noise</h3>
+          </div>
+          <div class="radar">
+            <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+            <div class="sweep"></div>
+            <i class="blip" style="top:18%;left:30%"></i>
+            <i class="blip hot" style="top:28%;left:66%"></i>
+            <i class="blip" style="top:62%;left:18%"></i>
+            <i class="blip" style="top:74%;left:58%"></i>
+            <i class="blip hot" style="top:52%;left:80%"></i>
+            <i class="blip" style="top:40%;left:44%"></i>
+            <div class="core"></div>
+          </div>
+          <div class="signal"><span><strong>Matches your ICP</strong> · new buying signal detected</span><span class="pill">Ready to reach</span></div>
+        </div>
+      </div>
+
+      <div class="card more reveal">
+        <div>
+          <h3>More products on the way</h3>
+          <p>We are building more tools around B2B data and go-to-market. Stay tuned.</p>
+        </div>
+        <a href="#contact" class="btn btn-ghost">Stay updated</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="label">( Principles )</div>
+        <div><h2>How we build</h2></div>
+      </div>
+      <div class="principles">
+        <div class="principle reveal"><span class="num">01</span><h3>Precision first</h3><p>Fewer, better-fit accounts beat long lists. Our tools are built to narrow the field, not flood it.</p></div>
+        <div class="principle reveal"><span class="num">02</span><h3>Timing matters</h3><p>The best moment to reach out is when a company shows intent. We build around signals, not guesswork.</p></div>
+        <div class="principle reveal"><span class="num">03</span><h3>Transparent data</h3><p>Every data point should be traceable. We keep where it came from and when it was seen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="label">( Roadmap )</div>
+        <div><h2>Where we are</h2></div>
+      </div>
+      <div class="timeline">
+        <div class="row reveal"><div class="when">July 2025</div><div><h3>IPAC Technology founded</h3><p>Company established with a focus on B2B data products.</p></div><span class="status done">Done</span></div>
+        <div class="row reveal"><div class="when">Now</div><div><h3>Building Tracue</h3><p>Developing the ICP filtering tool and the Radar signal engine.</p></div><span class="status now">In progress</span></div>
+        <div class="row reveal"><div class="when">Next</div><div><h3>Early access</h3><p>Opening Tracue to a first group of B2B teams.</p></div><span class="status">Upcoming</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>Want to be among the <span class="grad">first users?</span></h2>
+        <p>Tell us about your team and your ideal customers. We will reach out when Tracue early access opens.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="mailto:thinh@ipactechnology.com?subject=Tracue%20early%20access">Email us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="mailto:thinh@ipactechnology.com">thinh@ipactechnology.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> IPAC Technology. All rights reserved.</span>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Tracue</a>
+      <a href="mailto:thinh@ipactechnology.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const header = document.querySelector('header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
