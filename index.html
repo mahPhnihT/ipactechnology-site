@@ -136,6 +136,27 @@
   .cta p{color:var(--muted);max-width:560px;margin:24px auto 40px;font-size:18px}
   .cta .hero-ctas{justify-content:center}
 
+  .card-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+  .card-ctas .btn{margin-top:0}
+  .ul{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
+  .ul:hover{text-decoration-color:var(--accent)}
+
+  /* AI */
+  .ai{margin-top:16px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+  .ai h3{margin-bottom:14px}
+  .ai-list{list-style:none;display:grid;gap:10px}
+  .ai-list li{display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:center;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2)}
+  .ai-list b{font-weight:500;color:var(--accent);text-transform:uppercase;font-size:13px;letter-spacing:.08em}
+  .ai-list span{color:#ddd;font-size:15px}
+
+  /* TEAM */
+  .team{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+  .person{display:flex;gap:24px;align-items:center}
+  .avatar{flex:none;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:500;color:#000;background:linear-gradient(135deg,#FFE9A3,var(--accent) 45%,var(--accent-2))}
+  .person h3{font-size:clamp(24px,2.4vw,32px)}
+  .role{color:var(--muted);margin-top:2px}
+  .person-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#ddd}
+
   footer{border-top:1px solid var(--line);padding:40px 0;margin-top:120px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--dim);font-size:14px}
   .foot a:hover{color:#fff}
@@ -156,6 +177,7 @@
     .row{grid-template-columns:1fr;gap:10px}
     .row .status{justify-self:start}
     .radar-card{min-height:auto}
+    .ai{grid-template-columns:1fr;gap:28px}
     section{padding:88px 0}
   }
   @media (max-width:560px){
@@ -166,6 +188,9 @@
     .card{padding:28px}
     .cta{padding:56px 24px}
     .signal{flex-direction:column;align-items:flex-start}
+    .person{flex-direction:column;align-items:flex-start;gap:18px}
+    .team{grid-template-columns:1fr}
+    .foot nav{flex-wrap:wrap;gap:16px}
   }
 </style>
 </head>
@@ -182,6 +207,7 @@
       <a href="#products">Products</a>
       <a href="#principles">Principles</a>
       <a href="#roadmap">Roadmap</a>
+      <a href="#team">Team</a>
     </nav>
     <a href="#contact" class="btn">Contact us</a>
   </div>
@@ -248,9 +274,12 @@
             <li>Contacts unlocked only when there is a reason to reach out</li>
             <li>Sources and timestamps kept for every data point</li>
           </ul>
-          <a href="#contact" class="btn">Request early access
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <div class="card-ctas">
+            <a href="https://tracue.com" class="btn">Visit tracue.com
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost">Request early access</a>
+          </div>
         </article>
 
         <div class="card radar-card reveal" aria-hidden="true">
@@ -271,6 +300,19 @@
           </div>
           <div class="signal"><span><strong>Matches your ICP</strong> · new buying signal detected</span><span class="pill">Ready to reach</span></div>
         </div>
+      </div>
+
+      <div class="card ai reveal">
+        <div>
+          <span class="tag">Built with AI</span>
+          <h3>A data engine powered by Claude</h3>
+          <p>Tracue uses large language models from Anthropic (Claude) to read and classify company websites, extract firmographics and public business contacts with their source, detect buying signals such as hiring, funding and product launches, and score how well each account fits your ICP. Our product is also developed with Claude Code.</p>
+        </div>
+        <ul class="ai-list">
+          <li><b>Read</b><span>Company websites, classified at scale</span></li>
+          <li><b>Detect</b><span>Buying signals as they appear</span></li>
+          <li><b>Score</b><span>ICP fit for every account</span></li>
+        </ul>
       </div>
 
       <div class="card more reveal">
@@ -307,6 +349,32 @@
         <div class="row reveal"><div class="when">July 2025</div><div><h3>IPAC Technology founded</h3><p>Company established with a focus on B2B data products.</p></div><span class="status done">Done</span></div>
         <div class="row reveal"><div class="when">Now</div><div><h3>Building Tracue</h3><p>Developing the ICP filtering tool and the Radar signal engine.</p></div><span class="status now">In progress</span></div>
         <div class="row reveal"><div class="when">Next</div><div><h3>Early access</h3><p>Opening Tracue to a first group of B2B teams.</p></div><span class="status">Upcoming</span></div>
+        <div class="row reveal"><div class="when">March 2027</div><div><h3>Tracue v1 launch</h3><p>Public release of Tracue. Follow progress at <a href="https://tracue.com" class="ul">tracue.com</a>.</p></div><span class="status">Planned</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="label">( Team )</div>
+        <div>
+          <h2>Who is building it</h2>
+          <p class="lead">IPAC Technology is a small, product-focused team based in Hanoi, Vietnam, building for international B2B markets.</p>
+        </div>
+      </div>
+      <div class="team">
+        <article class="person card reveal">
+          <div class="avatar" aria-hidden="true">TP</div>
+          <div>
+            <h3>Thinh Pham</h3>
+            <p class="role">Founder &amp; CEO</p>
+            <div class="person-links">
+              <a href="https://www.linkedin.com/in/thinhphamipac" class="ul" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="mailto:thinh@ipactechnology.com" class="ul">thinh@ipactechnology.com</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -329,10 +397,12 @@
 
 <footer>
   <div class="wrap foot">
-    <span>© <span id="y">2026</span> IPAC Technology. All rights reserved.</span>
+    <span>© <span id="y">2026</span> IPAC Technology · Hanoi, Vietnam. All rights reserved.</span>
     <nav>
       <a href="#about">About</a>
-      <a href="#products">Tracue</a>
+      <a href="https://tracue.com">Tracue</a>
+      <a href="#team">Team</a>
+      <a href="privacy.html">Privacy</a>
       <a href="mailto:thinh@ipactechnology.com">Contact</a>
     </nav>
   </div>
