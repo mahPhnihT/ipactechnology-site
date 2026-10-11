@@ -157,6 +157,31 @@
   .role{color:var(--muted);margin-top:2px}
   .person-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#ddd}
 
+  /* EARLY ACCESS FORM */
+  .ea{max-width:760px;margin:0 auto;text-align:left}
+  .ea-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .ea label{display:grid;gap:8px;font-size:14px;color:#ddd}
+  .ea .full{grid-column:1/-1}
+  .ea .opt{color:var(--dim)}
+  .ea input,.ea select,.ea textarea{width:100%;font:inherit;font-size:16px;color:#fff;background:#0a0a0a;border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:13px 14px;outline:none;transition:border-color .2s}
+  .ea select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:18px;padding-right:40px}
+  .ea input:focus,.ea select:focus,.ea textarea:focus{border-color:var(--accent)}
+  .ea input.bad,.ea select.bad{border-color:#E8405A}
+  .ea textarea{resize:vertical}
+  .ea .consent{display:flex;gap:12px;align-items:flex-start;margin-top:20px;color:var(--muted);font-size:14px}
+  .ea .consent input{width:18px;height:18px;flex:none;margin-top:3px;accent-color:var(--accent);padding:0}
+  .ea .consent.bad{color:#ff8a9a}
+  .ea-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .ea button{border:0;cursor:pointer;font-family:inherit}
+  .ea button[disabled]{opacity:.6;cursor:wait;transform:none}
+  .cta .ea-msg{margin:16px 0 0;max-width:none;font-size:15px;min-height:0}
+  .cta .ea-msg:empty{display:none}
+  .ea-msg.ok{color:#2ED19A}
+  .ea-msg.err{color:#ff8a9a}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .ea.done .ea-grid,.ea.done .consent,.ea.done .ea-actions{display:none}
+  .ea.done .ea-msg{font-size:18px;text-align:center}
+
   footer{border-top:1px solid var(--line);padding:40px 0;margin-top:120px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--dim);font-size:14px}
   .foot a:hover{color:#fff}
@@ -190,6 +215,8 @@
     .cta{padding:56px 24px}
     .signal{flex-direction:column;align-items:flex-start}
     .person{flex-direction:column;align-items:flex-start;gap:18px}
+    .ea-grid{grid-template-columns:1fr}
+    .ea-actions .btn{width:100%;justify-content:center}
     .team{grid-template-columns:1fr}
     .foot nav{flex-wrap:wrap;gap:16px}
   }
@@ -385,12 +412,34 @@
       <div class="cta reveal">
         <h2>Want to be among the <span class="grad">first users?</span></h2>
         <p>Tell us about your team and your ideal customers. We will reach out when Tracue early access opens.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="mailto:thinh@ipactechnology.com?subject=Tracue%20early%20access">Email us
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="mailto:thinh@ipactechnology.com">thinh@ipactechnology.com</a>
-        </div>
+        <form id="ea-form" class="ea" novalidate>
+          <input type="hidden" name="_subject" value="New Tracue early access request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="ea-grid">
+            <label>Full name<input name="name" type="text" required autocomplete="name"></label>
+            <label>Work email<input name="email" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+            <label>Company<input name="company" type="text" required autocomplete="organization"></label>
+            <label>Company website<input name="website" type="text" placeholder="company.com"></label>
+            <label>Your role<input name="role" type="text" placeholder="e.g. Head of Sales"></label>
+            <label>Team size
+              <select name="team_size" required>
+                <option value="">Select</option>
+                <option>1–10</option><option>11–50</option><option>51–200</option><option>201–1000</option><option>1000+</option>
+              </select>
+            </label>
+            <label class="full"><span>Who is your ideal customer? <span class="opt">(optional)</span></span><textarea name="icp" rows="3" placeholder="Industry, company size, region, roles you sell to…"></textarea></label>
+          </div>
+          <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I agree that IPAC Technology may contact me about Tracue early access, as described in the <a href="privacy.html" class="ul">Privacy Policy</a>.</span></label>
+          <div class="ea-actions">
+            <button type="submit" class="btn">Request early access
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <a class="btn btn-ghost" href="mailto:thinh@ipactechnology.com">thinh@ipactechnology.com</a>
+          </div>
+          <p class="ea-msg" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -419,6 +468,40 @@
   addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Early access form — submissions are delivered by FormSubmit to the address below.
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/thinh@ipactechnology.com';
+  const form = document.getElementById('ea-form');
+  const msg = form.querySelector('.ea-msg');
+  const btn = form.querySelector('button[type=submit]');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    msg.className = 'ea-msg'; msg.textContent = '';
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(el => {
+      const bad = el.type === 'checkbox' ? !el.checked : !el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      (el.type === 'checkbox' ? el.closest('label') : el).classList.toggle('bad', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) { msg.className = 'ea-msg err'; msg.textContent = 'Please fill in the required fields and accept the privacy terms.'; return; }
+    if (form._honey.value) return;
+    btn.disabled = true;
+    try {
+      const data = Object.fromEntries(new FormData(form));
+      delete data._honey;
+      const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || String(out.success) === 'false') throw new Error(out.message || 'failed');
+      form.classList.add('done');
+      msg.className = 'ea-msg ok';
+      msg.textContent = 'Thanks! You are on the list. We will be in touch when Tracue early access opens.';
+    } catch (err) {
+      msg.className = 'ea-msg err';
+      msg.innerHTML = 'Something went wrong. Please email us at <a class="ul" href="mailto:thinh@ipactechnology.com?subject=Tracue%20early%20access">thinh@ipactechnology.com</a>.';
+    } finally { btn.disabled = false; }
+  });
+  form.addEventListener('input', e => e.target.classList.remove('bad'));
+  form.addEventListener('change', e => { if (e.target.type === 'checkbox') e.target.closest('label').classList.remove('bad'); });
 </script>
 </body>
 </html>
